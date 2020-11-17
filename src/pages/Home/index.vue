@@ -69,6 +69,7 @@
   </div>
 </template>
 <script>
+import { getLoginLog } from "@/api";
 export default {
   data() {
     return {
@@ -82,6 +83,11 @@ export default {
     handleClose(key, keyPath) {
       console.log(key, keyPath);
     }
+  },
+  mounted() {
+    getLoginLog().then(res => {
+      console.log(res);
+    });
   }
 };
 </script>

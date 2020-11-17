@@ -16,7 +16,25 @@ Vue.use(ElementUI);
 // Vue.component('el-carousel',Carousel)
 // Vue.component('el-carousel-item',CarouselItem)
 
-Vue.config.productionTip = false;
+// 路由前置钩子(导航守卫)
+router.beforeEach((to, from, next) => {
+  // 用户登入后,localStorage中有token
+  let token = localStorage.getItem("qf2006-token");
+  if (token) {
+    // 如果是登入页或注册页直接放行
+    next();
+  } else {
+    // 没token
+    if (to.path === "/login") {
+      next();
+    } else {
+      // 访问的不是登入页,跳转到登入页
+      next({ path: "/login" });
+    }
+  }
+});
+
+// Vue.config.productionTip = false;
 
 new Vue({
   router,
