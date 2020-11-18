@@ -1,0 +1,114 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "249074",
+      "name": "xueyuan",
+      "font_class": "xueyuan",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "2435540",
+      "name": "导航定位",
+      "font_class": "daohangdingwei",
+      "unicode": "e645",
+      "unicode_decimal": 58949
+    },
+    {
+      "icon_id": "4422408",
+      "name": "定位",
+      "font_class": "location",
+      "unicode": "e504",
+      "unicode_decimal": 58628
+    },
+    {
+      "icon_id": "4472748",
+      "name": "地图定位",
+      "font_class": "ditudingwei",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "4488647",
+      "name": "wode1",
+      "font_class": "wode",
+      "unicode": "e6c8",
+      "unicode_decimal": 59080
+    },
+    {
+      "icon_id": "4902762",
+      "name": "kaoqin",
+      "font_class": "kaoqin",
+      "unicode": "e686",
+      "unicode_decimal": 59014
+    },
+    {
+      "icon_id": "6534709",
+      "name": "kaoqin2",
+      "font_class": "kaoqin1",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "8367507",
+      "name": "wode",
+      "font_class": "wode1",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "9740021",
+      "name": "shouye",
+      "font_class": "shouye",
+      "unicode": "e6b0",
+      "unicode_decimal": 59056
+    },
+    {
+      "icon_id": "9884447",
+      "name": "yonghu",
+      "font_class": "yonghu",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "13024135",
+      "name": "收 起",
+      "font_class": "zhankai",
+      "unicode": "e503",
+      "unicode_decimal": 58627
+    },
+    {
+      "icon_id": "13653539",
+      "name": "收 起",
+      "font_class": "shouqi",
+      "unicode": "e985",
+      "unicode_decimal": 59781
+    },
+    {
+      "icon_id": "13716052",
+      "name": "kaoqin2",
+      "font_class": "kaoqin2",
+      "unicode": "e510",
+      "unicode_decimal": 58640
+    },
+    {
+      "icon_id": "15666032",
+      "name": "shuju2",
+      "font_class": "shuju2",
+      "unicode": "e7e8",
+      "unicode_decimal": 59368
+    },
+    {
+      "icon_id": "17504436",
+      "name": "shuju1",
+      "font_class": "shuju1",
+      "unicode": "e6c6",
+      "unicode_decimal": 59078
+    }
+  ]
+}

@@ -11,7 +11,7 @@ export const login = (username, password) =>
   });
 
 // 获取登入日志
-export const getLoginLog = () =>
-  axios({
-    url: "/getloginlog"
-  });
+export const getLoginLog = () => axios.get("/getloginlog")
+  
+// 获取用户菜单
+export const getMenuList = () => axios.get("/permission/getMenuList")

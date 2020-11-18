@@ -20,9 +20,7 @@
         <el-input type="password" v-model="loginForm.password"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="success" @click="submitForm('loginForm')"
-          >提交</el-button
-        >
+        <el-button type="success" @click="submitForm('loginForm')">提交</el-button>
       </el-form-item>
     </el-form>
     <video
@@ -31,8 +29,7 @@
       src="../../assets/video/112.mp4"
       autoplay
       loop
-      preload="auto"
-    ></video>
+      preload="auto"></video>
   </div>
 </template>
 
@@ -45,6 +42,7 @@
 // 5、校验不通过,跳转到登录页
 
 import { login } from "@/api";
+import { mapMutations } from "vuex"
 
 export default {
   data() {
@@ -81,6 +79,7 @@ export default {
     };
   },
   methods: {
+    ...mapMutations(["SET_USERINFO"]),
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
@@ -105,6 +104,10 @@ export default {
                 this.$message.success("恭喜登入成功");
                 // 用户名密码正确
                 localStorage.setItem("qf2006-token", res.data.token);
+                localStorage.setItem("qf2006-userInfo", JSON.stringify(res.data.userInfo));
+                // 更改vuex中state['userInfo']
+                this.SET_USERINFO(res.data.userInfo)
+                // 跳转到主页
                 this.$router.push("/");
               } else {
                 // 用户名或密码不正确

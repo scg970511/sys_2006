@@ -2,8 +2,15 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+// 引入全局css和element-reset
 import "./assets/styles/base.css";
 import "./assets/styles/el-reset.css";
+// 引入iconfont
+import "./assets/iconfont/iconfont.css";
+
+// 引入subMenu组件
+import qfSubMenu from "qf-sub-menu" 
+Vue.use(qfSubMenu)
 
 // 全局引入
 import ElementUI from "element-ui";
@@ -19,10 +26,18 @@ Vue.use(ElementUI);
 // 路由前置钩子(导航守卫)
 router.beforeEach((to, from, next) => {
   // 用户登入后,localStorage中有token
-  let token = localStorage.getItem("qf2006-token");
+  let token = localStorage.getItem("qf2006-token") || null;
   if (token) {
     // 如果是登入页或注册页直接放行
-    next();
+    if (store.state.menuList.length == 0) {
+      // 说明没有用户路由,触发action获取用户路由
+      store.dispatch("FETCH_MENULIST")
+        .then(() => {
+          next({ path: to.path })//这里要注意, next里面要传参数即要进入的页面的路由信息，因为next传参数后，当前要进入的路由会被废止，转而进入参数对应的路由，虽然是同一个路由，这么做主要是为了确保addRoutes生效了。
+        })
+    } else {
+      next();
+    }
   } else {
     // 没token
     if (to.path === "/login") {
@@ -35,6 +50,8 @@ router.beforeEach((to, from, next) => {
 });
 
 // Vue.config.productionTip = false;
+
+import "./utils/recursionRoutes.js"
 
 new Vue({
   router,
