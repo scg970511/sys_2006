@@ -4,12 +4,14 @@
       <!-- 侧边栏 -->
       <el-aside width="200">
         <div class="gl">
-         <span>9527</span>
+          <span>9527</span>
         </div>
-        <el-menu :default-active="$route.path"
+        <el-menu
+          :default-active="$route.path"
           class="el-menu-vertical-demo"
           :router="true"
-          :collapse="isCollapse">
+          :collapse="isCollapse"
+        >
           <qf-sub-menu :sideMenu="menuList"></qf-sub-menu>
         </el-menu>
       </el-aside>
@@ -19,8 +21,10 @@
           <el-row type="flex" class="row-bg" justify="space-around">
             <el-col :span="6">
               <div class="grid-content bg-purple">
-                <i class="iconfont icon-zhankai"
-                  @click="isCollapse = !isCollapse"></i>
+                <i
+                  class="iconfont icon-zhankai"
+                  @click="isCollapse = !isCollapse"
+                ></i>
               </div>
             </el-col>
             <el-col :span="6">
@@ -30,9 +34,11 @@
             </el-col>
             <el-col :span="6">
               <div class="grid-content bg-purple">
-                <el-avatar :size="40"
+                <el-avatar
+                  :size="40"
                   fit="fit"
-                  src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3417121378,1487501826&fm=26&gp=0.jpg">
+                  src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3417121378,1487501826&fm=26&gp=0.jpg"
+                >
                 </el-avatar>
                 <span>欢迎监狱长：</span>
                 <b class="nickname">{{ userInfo.nickname }}</b>
@@ -44,8 +50,14 @@
         <!-- 主体区 -->
         <el-main>
           <el-breadcrumb separator-class="el-icon-arrow-right">
-            <el-breadcrumb-item :to="{ path: '/Welcome' }">首页</el-breadcrumb-item>
-            <el-breadcrumb-item :to="{ path: crumbs.path }" v-for="crumb in crumbs" :key="crumb.index">
+            <el-breadcrumb-item :to="{ path: '/Welcome' }"
+              >首页</el-breadcrumb-item
+            >
+            <el-breadcrumb-item
+              :to="{ path: crumbs.path }"
+              v-for="crumb in crumbs"
+              :key="crumb.index"
+            >
               {{ crumb.meta.name }}
             </el-breadcrumb-item>
           </el-breadcrumb>
@@ -67,7 +79,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["userInfo", "menuList","crumbs"])
+    ...mapState(["userInfo", "menuList", "crumbs"])
   },
   methods: {
     quit() {
@@ -119,7 +131,7 @@ export default {
 
 .el-aside {
   background-color: #fff;
-  color:black;
+  color: black;
   text-align: center;
   line-height: 200px;
 }

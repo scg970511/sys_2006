@@ -15,8 +15,8 @@ import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 Vue.use(ElementUI);
 //导入nprogress
-import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
 
 import "./utils/recursionRoutes.js";
 
@@ -55,16 +55,13 @@ router.beforeEach((to, from, next) => {
 });
 
 // 使用路由后置钩子处理面包屑
-router.afterEach( (to,from) => {
+router.afterEach((to, from) => {
   // console.log(to);
-  let crumblist = to.matched.slice(1)
-  // console.log(crumblist); 
-  store.commit('SET_CRUMBS', crumblist)
-  NProgress.done();  //进度条消失
-})
-
-
-
+  let crumblist = to.matched.slice(1);
+  // console.log(crumblist);
+  store.commit("SET_CRUMBS", crumblist);
+  NProgress.done(); //进度条消失
+});
 
 new Vue({
   router,

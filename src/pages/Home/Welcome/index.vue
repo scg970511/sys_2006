@@ -10,16 +10,15 @@ import { getLoginLog } from "@/api";
 export default {
   methods: {
     send() {
-      getLoginLog(this)
-      .then((res) => {
+      getLoginLog(this).then(res => {
         console.log(res);
       });
     },
     abort() {
-      if(typeof this.cancel === "function"){
-        this.cancel()
+      if (typeof this.cancel === "function") {
+        this.cancel();
       }
-    },
-  },
+    }
+  }
 };
 </script>

@@ -37,8 +37,8 @@ export default new Vuex.Store({
       router.addRoutes(dynamicRoutes);
     },
     // 设置面包屑
-    SET_CRUMBS(state,payload){
-      state.crumbs = payload
+    SET_CRUMBS(state, payload) {
+      state.crumbs = payload;
     }
   },
   actions: {

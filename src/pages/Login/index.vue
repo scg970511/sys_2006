@@ -5,14 +5,12 @@
       :rules="rules"
       ref="loginForm"
       label-width="100px"
-      class="demo-loginForm">
+      class="demo-loginForm"
+    >
       <h1>9527监狱小知识</h1>
       <!-- 用户名 -->
       <el-form-item label="用户名" prop="username">
-        <el-input
-          type="text"
-          v-model="loginForm.username"
-          autocomplete="off">
+        <el-input type="text" v-model="loginForm.username" autocomplete="off">
         </el-input>
       </el-form-item>
       <!-- 密码 -->
@@ -21,8 +19,14 @@
       </el-form-item>
       <!-- 验证码 -->
       <el-form-item label="验证码" prop="captcha">
-        <el-input class="captcha" type="text" v-model="loginForm.captcha"></el-input>
-        <span class="svg" v-html="captchaSvg" @click="refreshCaptcha">123456</span>
+        <el-input
+          class="captcha"
+          type="text"
+          v-model="loginForm.captcha"
+        ></el-input>
+        <span class="svg" v-html="captchaSvg" @click="refreshCaptcha"
+          >123456</span
+        >
       </el-form-item>
       <!-- 提交按钮 -->
       <el-form-item>
@@ -31,13 +35,14 @@
         </el-button>
       </el-form-item>
     </el-form>
-    <video class="bg_video"
-          muted
-          src="../../assets/video/112.mp4"
-          autoplay
-          loop
-          preload="auto">
-    </video>
+    <video
+      class="bg_video"
+      muted
+      src="../../assets/video/112.mp4"
+      autoplay
+      loop
+      preload="auto"
+    ></video>
   </div>
 </template>
 
@@ -49,7 +54,7 @@
 // 4、展示token校验正确的数据
 // 5、校验不通过,跳转到登录页
 
-import { login,getCaptcha,refreshCaptcha,verifyCaptcha } from "@/api";
+import { login, getCaptcha, refreshCaptcha, verifyCaptcha } from "@/api";
 import { mapMutations } from "vuex";
 
 export default {
@@ -102,34 +107,33 @@ export default {
       }
     };
   },
-  mounted () {
-    this.set_captcha()
+  mounted() {
+    this.set_captcha();
   },
   methods: {
     // 设置验证码
-    set_captcha(){
-      getCaptcha()
-      .then(res => {
-        this.captchaSvg = res.data.img
-      })
+    set_captcha() {
+      getCaptcha().then(res => {
+        this.captchaSvg = res.data.img;
+      });
     },
     // 刷新验证码
-    refreshCaptcha(){
-      this.set_captcha()
+    refreshCaptcha() {
+      this.set_captcha();
     },
     ...mapMutations(["SET_USERINFO"]),
     submitForm(formName) {
-      this.$refs[formName].validate(async (valid) => {
+      this.$refs[formName].validate(async valid => {
         if (valid) {
           // 代表本地校验通过
           // 先验证验证码是否正确,如果正确在发送登入请求
-          let verifyRes = await verifyCaptcha(this.loginForm.captcha)
-          if(!verifyRes.data.state){
+          let verifyRes = await verifyCaptcha(this.loginForm.captcha);
+          if (!verifyRes.data.state) {
             // 验证码不正确
             this.$message.error("验证码不正确,请重新输入");
-            return 
+            return;
           }
-          
+
           // 打开登陆加载动画
           const loading = this.$loading({
             lock: true,
