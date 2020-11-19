@@ -8,11 +8,9 @@
 export default {
   data() {
     return {
-      input: "",
+      input: ""
     };
   },
-  mounted() {
-    
-  },
+  mounted() {}
 };
 </script>

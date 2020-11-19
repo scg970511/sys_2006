@@ -2,3 +2,23 @@
 .login-page .el-input__inner{
     width: 83%;
   } 
+  .gl {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: fuchsia;
+  }
+  .gl span {
+    color: black !important;
+  }
+
+  /* 验证码 */
+ .captcha {
+  width: 40% !important;
+  float: left;
+}
+
+  

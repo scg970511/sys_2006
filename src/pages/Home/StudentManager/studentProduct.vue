@@ -1,3 +1,3 @@
 <template>
-    <h1>产品</h1>
+  <h1>产品</h1>
 </template>
