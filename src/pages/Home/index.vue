@@ -4,14 +4,13 @@
       <!-- 侧边栏 -->
       <el-aside width="200">
         <div class="gl">
-          <span>9527</span>
+          <span>桃花源</span>
         </div>
         <el-menu
           :default-active="$route.path"
           class="el-menu-vertical-demo"
           :router="true"
-          :collapse="isCollapse"
-        >
+          :collapse="isCollapse">
           <qf-sub-menu :sideMenu="menuList"></qf-sub-menu>
         </el-menu>
       </el-aside>
@@ -23,13 +22,12 @@
               <div class="grid-content bg-purple">
                 <i
                   class="iconfont icon-zhankai"
-                  @click="isCollapse = !isCollapse"
-                ></i>
+                  @click="isCollapse = !isCollapse"></i>
               </div>
             </el-col>
             <el-col :span="6">
               <div class="grid-content bg-purple-light">
-                监狱管理系统
+                桃源村管理系统
               </div>
             </el-col>
             <el-col :span="6">
@@ -37,11 +35,10 @@
                 <el-avatar
                   :size="40"
                   fit="fit"
-                  src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3417121378,1487501826&fm=26&gp=0.jpg"
-                >
+                  src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3417121378,1487501826&fm=26&gp=0.jpg">
                 </el-avatar>
-                <span>欢迎监狱长：</span>
-                <b class="nickname">{{ userInfo.nickname }}</b>
+                <span>欢迎村长：</span>
+                <b class="nickname" @click="$router.push('/Mine')">{{ userInfo.nickname }}</b>
                 <span class="quit" @click="quit">退出</span>
               </div>
             </el-col>
@@ -50,14 +47,11 @@
         <!-- 主体区 -->
         <el-main>
           <el-breadcrumb separator-class="el-icon-arrow-right">
-            <el-breadcrumb-item :to="{ path: '/Welcome' }"
-              >首页</el-breadcrumb-item
-            >
+            <el-breadcrumb-item :to="{ path: '/Welcome' }">首页</el-breadcrumb-item>
             <el-breadcrumb-item
               :to="{ path: crumbs.path }"
               v-for="crumb in crumbs"
-              :key="crumb.index"
-            >
+              :key="crumb.index">
               {{ crumb.meta.name }}
             </el-breadcrumb-item>
           </el-breadcrumb>
@@ -113,9 +107,15 @@ export default {
 .icon-zhankai {
   color: aqua;
 }
+.nickname {
+  font-weight: 1000;
+  text-decoration: underline;
+  cursor: pointer;
+}
 .quit {
   cursor: pointer;
   color: greenyellow;
+  margin-left: 10px;
 }
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;

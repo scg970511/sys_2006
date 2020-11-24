@@ -20,7 +20,8 @@ export default new Vuex.Store({
   state: {
     userInfo,
     menuList: [], // 定义用户侧边栏菜单
-    crumbs: []
+    crumbs: [],
+    permissionButtons: []
   },
   mutations: {
     // 更改userInfo
@@ -39,6 +40,9 @@ export default new Vuex.Store({
     // 设置面包屑
     SET_CRUMBS(state, payload) {
       state.crumbs = payload;
+    },
+    SET_PERMISSION_BUTTONS(state,payload){
+      state.permissionButtons = payload
     }
   },
   actions: {

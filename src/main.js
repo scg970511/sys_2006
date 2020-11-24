@@ -2,6 +2,8 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import bus from "./utils/bus"
+Vue.prototype.$bus = bus;
 // 引入全局css和element-reset
 import "./assets/styles/base.css";
 import "./assets/styles/el-reset.css";
@@ -19,6 +21,9 @@ import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 
 import "./utils/recursionRoutes.js";
+// 引入鉴权的方法
+import has from "./utils/has";
+Vue.prototype.$has = has;
 
 // 按需引入
 // import { Carousel,CarouselItem } from "element-ui"
@@ -27,6 +32,24 @@ import "./utils/recursionRoutes.js";
 // Vue.component('el-carousel-item',CarouselItem)
 
 // Vue.config.productionTip = false;
+
+//定义全局自定义指令 判断是否具备相应按钮权限
+Vue.directive("haspermission", {
+
+  bind(el, binding, VNode) {
+    // console.log(el)
+    let buttons = localStorage.getItem("qf2006-permission-buttons")
+    if (!has(buttons, binding.value)) {
+      //禁用按钮
+      // console.log(el.className)
+      //先储存class类名 在这基础上加上is-disabled禁用按钮
+      let className = el.className;
+      el.className = className + " " + "is-disabled"
+      el.disabled = true
+      // console.log(el)
+    }
+  }
+})
 
 // 路由前置钩子(导航守卫)
 router.beforeEach((to, from, next) => {

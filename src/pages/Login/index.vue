@@ -5,9 +5,8 @@
       :rules="rules"
       ref="loginForm"
       label-width="100px"
-      class="demo-loginForm"
-    >
-      <h1>9527监狱小知识</h1>
+      class="demo-loginForm">
+      <h1>桃源村管理系统</h1>
       <!-- 用户名 -->
       <el-form-item label="用户名" prop="username">
         <el-input type="text" v-model="loginForm.username" autocomplete="off">
@@ -22,11 +21,8 @@
         <el-input
           class="captcha"
           type="text"
-          v-model="loginForm.captcha"
-        ></el-input>
-        <span class="svg" v-html="captchaSvg" @click="refreshCaptcha"
-          >123456</span
-        >
+          v-model="loginForm.captcha"></el-input>
+        <span class="svg" v-html="captchaSvg" @click="refreshCaptcha"></span>
       </el-form-item>
       <!-- 提交按钮 -->
       <el-form-item>
@@ -41,8 +37,7 @@
       src="../../assets/video/112.mp4"
       autoplay
       loop
-      preload="auto"
-    ></video>
+      preload="auto"></video>
   </div>
 </template>
 
@@ -153,10 +148,10 @@ export default {
                 this.$message.success("恭喜登入成功");
                 // 用户名密码正确
                 localStorage.setItem("qf2006-token", res.data.token);
-                localStorage.setItem(
-                  "qf2006-userInfo",
-                  JSON.stringify(res.data.userInfo)
-                );
+                localStorage.setItem("qf2006-userInfo",JSON.stringify(res.data.userInfo));
+                localStorage.setItem("qf2006-permission-buttons",JSON.stringify(res.data.permission.buttons));
+                // 将用户权限按钮保存到vuex
+                this.$store.commit("SET_PERMISSION_BUTTONS",res.data.permission.buttons)
                 // 更改vuex中state['userInfo']
                 this.SET_USERINFO(res.data.userInfo);
                 // 跳转到主页
